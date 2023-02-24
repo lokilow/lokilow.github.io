@@ -1,1 +1,20 @@
-Hello World
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <h1 class="text-3xl text-blue-500 my-16 text-center mx-auto font-bold underline">
+      Experimenting with Canvas
+    </h1>
+    <canvas height="500" width="500" class="canvas border border-1 m-auto"></canvas>
+  </body>
+  <script>
+    const canvas = document.querySelector("canvas");
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#234567";
+    ctx.fillRect(5, 5, 490, 490);
+  </script>
+</html
