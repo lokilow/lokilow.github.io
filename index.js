@@ -2,12 +2,15 @@
 const NUM_SQUARES = 755
 const LARGE_SQUARE = 50
 const SMALL_SQUARE = 10 
+const INTERVAL = 5555
 
 const canvas = document.querySelector("canvas")
 const ctx = canvas.getContext("2d")
+let timeout
 
 const randInt = (x) => Math.trunc(Math.random() * x)
 const randRGB = () => [1,2,3].map(() => randInt(255))
+
 
 const clear = () => {
   const width = canvas.height
@@ -16,6 +19,8 @@ const clear = () => {
 }
 
 const draw = () => {
+  clear()
+  clearTimeout(timeout)
   const width = canvas.height
   const height = canvas.width
 
@@ -34,7 +39,8 @@ const draw = () => {
     ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${a})`
     ctx.fillRect(x, y, size, size)
   }
+  timeout = setTimeout(() => draw(), INTERVAL)
 }
 
-window.onresize = () => {clear(); draw()}
+window.onresize = () => {draw()}
 draw()
